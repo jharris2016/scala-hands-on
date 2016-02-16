@@ -12,7 +12,7 @@ import akka.stream.scaladsl.Sink
 
 object MCCGMain extends App {
   implicit val system = ActorSystem("test")
-  //implicit val materializer = ActorMaterializer()
+  implicit val materializer = ActorMaterializer()
   implicit  val ec = system.dispatcher
 
   val serverSource = Http().bind(interface = "0.0.0.0", port = MCCGConfig().port.get)
